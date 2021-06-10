@@ -24,20 +24,22 @@ function App() {
     }
   ])
 
-//Delete Tasks
-const deleteTask = (id) => {
-  console.log('delete', id)
-}
+  //Delete Tasks
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !==
+      id))
+  }
+  //Toogle Remainder
 
-  return ( 
+
+  return (
 
     <div className = "container" >
     <Header title = "Task Tracker"/ >
-    <Tasks tasks = {tasks}  onDelete= {deleteTask} / >
+    {tasks.length > 0 ? (<Tasks tasks = {tasks}  onDelete= {deleteTask} />) : ('No task to show here')}
     </div>
+        );
+      }
 
-  );
-}
 
-
-export default App;
+      export default App;
